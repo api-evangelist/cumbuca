@@ -1,0 +1,38 @@
+generated: '2026-07-18'
+method: searched
+source:
+  - https://mcp.cumbuca.com/.well-known/oauth-protected-resource
+  - https://idc.cumbuca.com/realms/cumbuca-mcp/.well-known/oauth-authorization-server
+  - https://www.cumbuca.com/en/
+summary:
+  types: [oauth2, openIdConnect, mutualTLS]
+  oauth2_flows: [authorizationCode]
+  api_key_in: []
+schemes:
+  - name: OpenFinanceMTLS
+    type: mutualTLS
+    description: >
+      The core regulated proxy forwards cryptographically signed, mutual-TLS
+      requests between client infrastructure and the Bacen / Open Finance Brasil
+      ecosystem using the client's (or Cumbuca's) certificates. Certificate swap
+      when a client obtains its own Payment Institution license (zero lock-in).
+    sources: [https://www.cumbuca.com/en/]
+  - name: OpenIDConnect
+    type: openIdConnect
+    description: >
+      The Open Finance Data MCP server is an OAuth 2.0 / OIDC protected resource.
+      Authorization server is a Keycloak realm (idc.cumbuca.com/realms/cumbuca-mcp).
+      Access tokens are mTLS certificate-bound (RFC 8705).
+    openIdConnectUrl: https://idc.cumbuca.com/realms/cumbuca-mcp/.well-known/openid-configuration
+    authorizationUrl: https://idc.cumbuca.com/realms/cumbuca-mcp/protocol/openid-connect/auth
+    tokenUrl: https://idc.cumbuca.com/realms/cumbuca-mcp/protocol/openid-connect/token
+    scopes_supported: [openid, profile, offline_access, open-finance]
+    mtls_bound_tokens: true
+    sources: [https://mcp.cumbuca.com/.well-known/oauth-protected-resource]
+  - name: OpenFinanceConsent
+    type: oauth2
+    description: >
+      End-user data access follows the Open Finance Brasil consent flow: the user
+      authenticates at their bank by CPF + biometric or banking PIN (no password
+      sharing) and grants a scoped consent that Cumbuca relays.
+    sources: [https://www.cumbuca.com/en/launchweek/of-data-mcp/]
