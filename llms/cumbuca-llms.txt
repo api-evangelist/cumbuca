@@ -1,0 +1,24 @@
+# Cumbuca
+
+> Cumbuca is a Banco Central do Brasil-licensed Payment Institution that provides regulated "proxy" access to Brazil's Pix and Open Finance networks. It maps 1:1 to the official Open Finance Brasil / Central Bank API specifications, forwarding cryptographically signed requests so fintechs can build directly on the regulated rails without holding their own license (certificate swap when they do). Founded 2021, São Paulo; backed by Lightspeed Venture Partners and Y Combinator.
+
+## Products
+- [Regulated Pix + Open Finance proxy](https://www.cumbuca.com/en/): Direct access to Pix payment initiation, Open Finance data endpoints, recurring payments, and SCR credit-information queries. 0ms median latency overhead, 99.99% availability SLA.
+- [Open Finance Data MCP](https://www.cumbuca.com/en/launchweek/of-data-mcp/): Hosted MCP server connecting a user's bank accounts to Claude/ChatGPT/Cursor over Open Finance.
+- [Regulus](https://www.cumbuca.com/en/launchweek/regulus/): AI chatbot trained on Central Bank regulations for Open Finance and Pix rules.
+
+## MCP
+- [Open Finance Data MCP server](https://mcp.cumbuca.com/mcp): Remote HTTP MCP server, OAuth 2.0 protected (scopes: openid, profile, offline_access, open-finance), mTLS certificate-bound tokens.
+- [Protected-resource metadata](https://mcp.cumbuca.com/.well-known/oauth-protected-resource): RFC 9728 discovery.
+
+## Docs
+- [Open Finance Playground](https://juspay.io/open-finance): Open-source developer guide to Brazil's Open Finance ecosystem, built with Juspay.
+- [Playground documentation](https://juspay-2.gitbook.io/open-finance/pt): Step-by-step consent, payment-initiation, and data-access implementation guides.
+
+## Operations
+- [Status pages](https://via.cumbuca.com/): Public real-time status of PCM, SCR and major Brazilian banks/fintechs.
+- [security.txt](https://cumbuca.com/.well-known/security.txt): RFC 9116 responsible-disclosure contact.
+- [Cybersecurity policy](https://cumbuca.com/politica-de-seguranca-cibernetica/)
+- [Privacy policy](https://cumbuca.com/privacy/)
+- [Newsroom](https://www.cumbuca.com/en/newsroom/)
+- [Contact](https://cumbuca.com/contact/)

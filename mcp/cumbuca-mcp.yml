@@ -1,0 +1,39 @@
+generated: '2026-07-18'
+method: searched
+status: published
+source: https://www.cumbuca.com/en/launchweek/of-data-mcp/
+server:
+  name: cumbuca-openfinance
+  label: Open Finance Data MCP
+  transport: http
+  url: https://mcp.cumbuca.com/mcp
+  description: >
+    Hosted, remote MCP server that connects a user's Brazilian bank accounts to
+    an AI assistant (Claude, ChatGPT, Cursor) through Open Finance. Exposes bank
+    statement and credit-card transaction data for natural-language financial
+    queries and export (e.g. "How much did I spend on food last month?").
+auth:
+  type: oauth2
+  protected_resource_metadata: https://mcp.cumbuca.com/.well-known/oauth-protected-resource
+  authorization_server: https://idc.cumbuca.com/realms/cumbuca-mcp
+  scopes_supported: [openid, profile, offline_access, open-finance]
+  mtls_bound_tokens: true          # tls_client_certificate_bound_access_tokens
+  end_user_auth: Open Finance consent via CPF + bank selection (biometric or banking PIN)
+install:
+  claude_desktop: Settings -> Connectors -> Add custom connector -> https://mcp.cumbuca.com/mcp
+  claude_code: claude mcp add --transport http cumbuca https://mcp.cumbuca.com/mcp
+  chatgpt: Developer Mode -> Connectors -> Create -> https://mcp.cumbuca.com/mcp
+  config_json: |
+    {
+      "mcpServers": {
+        "cumbuca-openfinance": { "url": "https://mcp.cumbuca.com/mcp" }
+      }
+    }
+limitations:
+  - One account at a time
+  - Only accounts matching the authenticated user's CPF
+tools: []   # tool list is behind OAuth (401 without a token); not enumerable unauthenticated
+notes: >
+  Verified live: POST https://mcp.cumbuca.com/mcp returns HTTP 401 with
+  WWW-Authenticate: Bearer resource_metadata="https://mcp.cumbuca.com/.well-known/oauth-protected-resource"
+  confirming a real, running, OAuth-protected MCP server.

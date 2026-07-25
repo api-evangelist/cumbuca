@@ -1,0 +1,28 @@
+generated: '2026-07-18'
+method: searched
+source: live probe of /.well-known/ on cumbuca.com and mcp.cumbuca.com
+hosts:
+  - host: https://www.cumbuca.com
+    documents:
+      - path: /.well-known/security.txt          # RFC 9116
+        status: 200
+        file: cumbuca-security.txt
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+  - host: https://mcp.cumbuca.com
+    documents:
+      - path: /.well-known/oauth-protected-resource   # RFC 9728 (protects the MCP server)
+        status: 200
+        file: cumbuca-oauth-protected-resource.json
+      - path: /.well-known/oauth-authorization-server # RFC 8414 (redirects to Keycloak realm)
+        status: 200
+        file: cumbuca-oauth-authorization-server.json
+        note: 301 redirect to https://idc.cumbuca.com/realms/cumbuca-mcp/.well-known/oauth-authorization-server
+      - path: /.well-known/openid-configuration
+        status: 404
+notes: >
+  The Open Finance Data MCP server at mcp.cumbuca.com is an OAuth 2.0 protected
+  resource (RFC 9728) whose authorization server is a Keycloak realm at
+  idc.cumbuca.com/realms/cumbuca-mcp. Access tokens are mTLS certificate-bound.

@@ -1,0 +1,22 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.cumbuca.com/en/launchweek/status-pages/
+versioning:
+  scheme: upstream-open-finance
+  note: >
+    Cumbuca is a transparent 1:1 proxy of Brazil's official Open Finance and Pix
+    (Bacen) API specifications; it does not version its own API surface but
+    tracks the Open Finance Brasil standard versions.
+sla:
+  uptime_target: "99.99%"
+  latency_overhead: "0ms median"
+  source: https://www.cumbuca.com/en/
+status_page: https://via.cumbuca.com/
+status_page_note: >
+  Public, no-login real-time status dashboard (via.cumbuca.com) monitoring PCM,
+  SCR and major Brazilian banks/fintechs across the Open Finance infrastructure.
+deprecation:
+  policy_url: null
+  sunset_header: null
+  note: No standalone deprecation policy published; tied to upstream Open Finance lifecycle.
+deprecated_operations: []

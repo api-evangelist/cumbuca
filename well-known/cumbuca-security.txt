@@ -1,0 +1,10 @@
+# Cumbuca security.txt
+# Responsible disclosure policy
+# Last updated: 2026-04-24
+
+Contact: mailto:security@cumbuca.com
+Contact: https://cumbuca.com/contact/
+Expires: 2027-04-24T23:59:59.000Z
+Preferred-Languages: pt-BR, en
+Canonical: https://cumbuca.com/.well-known/security.txt
+Policy: https://cumbuca.com/#seguranca

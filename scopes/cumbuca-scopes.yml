@@ -1,0 +1,33 @@
+generated: '2026-07-18'
+method: searched
+source: https://mcp.cumbuca.com/.well-known/oauth-protected-resource
+docs: https://mcp.cumbuca.com/.well-known/oauth-protected-resource
+schemes:
+  - name: cumbuca-mcp
+    source: https://idc.cumbuca.com/realms/cumbuca-mcp
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://idc.cumbuca.com/realms/cumbuca-mcp/protocol/openid-connect/auth
+        tokenUrl: https://idc.cumbuca.com/realms/cumbuca-mcp/protocol/openid-connect/token
+scopes:
+  - scope: openid
+    description: OIDC authentication of the end user.
+    flows: [authorizationCode]
+    sources: [https://mcp.cumbuca.com/.well-known/oauth-protected-resource]
+  - scope: profile
+    description: Basic profile claims for the authenticated user.
+    flows: [authorizationCode]
+    sources: [https://mcp.cumbuca.com/.well-known/oauth-protected-resource]
+  - scope: offline_access
+    description: Refresh-token issuance for long-lived MCP sessions.
+    flows: [authorizationCode]
+    sources: [https://mcp.cumbuca.com/.well-known/oauth-protected-resource]
+  - scope: open-finance
+    description: >
+      Access to the user's Open Finance data (bank statements, credit-card
+      transactions) surfaced through the Cumbuca Open Finance Data MCP server.
+    flows: [authorizationCode]
+    sources: [https://mcp.cumbuca.com/.well-known/oauth-protected-resource]
+notes: >
+  Scopes read verbatim from the MCP server's RFC 9728 protected-resource
+  metadata (scopes_supported). Tokens are mTLS certificate-bound.

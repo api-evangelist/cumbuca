@@ -1,0 +1,44 @@
+generated: '2026-07-18'
+method: searched
+source:
+  - https://www.cumbuca.com/en/
+  - https://mcp.cumbuca.com/.well-known/oauth-protected-resource
+standards:
+  - id: open-finance-brasil
+    conforms: true
+    evidence: >
+      Regulated proxy with 1:1 mapping to the official Open Finance Brasil API
+      specifications; forwards signed requests into the Bacen ecosystem.
+  - id: pix
+    conforms: true
+    evidence: Provides regulated Pix payment-initiation access as a Bacen-licensed Payment Institution.
+  - id: scr-central-bank
+    conforms: true
+    evidence: Exposes SCR (Sistema de Informações de Crédito) credit-information queries.
+  - id: oauth2
+    conforms: true
+    evidence: MCP server is an OAuth 2.0 protected resource (RFC 6749 authorization-code flow).
+  - id: oidc
+    conforms: true
+    evidence: Keycloak OIDC realm at idc.cumbuca.com/realms/cumbuca-mcp.
+  - id: rfc9728-protected-resource-metadata
+    conforms: true
+    evidence: /.well-known/oauth-protected-resource served on mcp.cumbuca.com.
+  - id: rfc8414-authorization-server-metadata
+    conforms: true
+    evidence: /.well-known/oauth-authorization-server served (redirects to Keycloak realm).
+  - id: rfc8705-mtls-bound-tokens
+    conforms: true
+    evidence: tls_client_certificate_bound_access_tokens = true in protected-resource metadata.
+  - id: rfc9116-security-txt
+    conforms: true
+    evidence: /.well-known/security.txt published with Contact + Policy.
+  - id: fapi
+    conforms: true
+    evidence: >
+      Open Finance Brasil mandates FAPI-grade security (mTLS-bound tokens, signed
+      requests); consistent with observed mTLS certificate-bound access tokens.
+compliance_program:
+  regulator: Banco Central do Brasil (Bacen)
+  status: Licensed Payment Institution
+  cybersecurity_policy: https://cumbuca.com/politica-de-seguranca-cibernetica/
