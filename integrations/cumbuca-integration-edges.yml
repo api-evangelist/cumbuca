@@ -1,0 +1,41 @@
+generated: '2026-10-12'
+method: searched
+source:
+- https://zapier.com/apps/cumbuca/integrations
+- https://n8n.io/integrations/cumbuca/
+- https://composio.dev/toolkits/cumbuca
+- https://monid.ai/tools/cumbuca
+checked:
+- https://composio.dev/toolkits/cumbuca
+- https://data.directory.openbankingbrasil.org.br/participants
+- https://monid.ai/tools/cumbuca
+- https://n8n.io/integrations/cumbuca/
+- https://zapier.com/apps/cumbuca/integrations
+summary: null
+marketplace_apps: []
+edges:
+- partner_name: Open Finance Brasil
+  partner: null
+  type: contract
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://data.directory.openbankingbrasil.org.br/participants
+  contract_reference:
+    register: Open Finance Brasil directory (Banco Central do Brasil)
+    spec_file: null
+    role: participant
+    registered_name: CUMBUCA INSTITUICAO DE PAGAMENTO LTDA
+    register_id: 0fdc39da-a699-4f85-90cc-936c7b872791
+    matched_domain: cumbuca.com
+    api_families:
+    - admin
+    - consents
+    - customers-business
+    - customers-personal
+    - discovery_outages
+    - discovery_status
+    - resources
+    detected_by: sweep-standard-registers.py
+    detected: '2026-10-12'
+templates: []
